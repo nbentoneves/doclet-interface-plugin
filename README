@@ -1,32 +1,63 @@
-    <profiles>
-        <profile>
-            <id>run-doclet-interface</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.doclet-interface.helper</groupId>
-                        <artifactId>doclet-interface-plugin</artifactId>
-                        <version>1.0-SNAPSHOT</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>genDoc</goal>
-                                </goals>
-                                <configuration>
-                                    <sourceInterface>src/main/java/xxxxxx/TestDoc.java</sourceInterface>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>xxxxxxxxx</groupId>
-                                <artifactId>tests</artifactId>
-                                <version>1.0-SNAPSHOT</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+# Introduction
+------
+The goal of this plugin is to generate a html page where you can see the documentation method (name of method, input parameters, output parameters, etc) allowing you call the methods and injecting an json input and receive a json output.
+
+In the first phase we only have available the documentation part, you can't perform requests to the methods. We will have the following features in the following order:
+
+1. HTML page with method documentation. (Only available for one method) :heavy_check_mark:
+2. You can perform a request to method (Only available for one method) :soon:
+3. You can have a html page with multiple methods documentation and can perform a request for each one. :soon:
+
+# How can I do magic?
+------
+You only need to comment you code with specific java docs (for more information please see the chapter X) and copy the following profile for your pom.xml file.
+
+| Field           | Description                                                        | Possible Values       |
+| -------------   |--------------------------------------------------------------------|:---------------------:|
+| phase           | You can set with one of the following maven phases.                | test, verify, install |
+| goal            | This is a goal for the plugin. Please don't change this value!     | genDoc                |
+| sourceInterface | You need to set the java file where did you put the documentation  | any java file         |
+
+```xml
+<profiles>
+    <profile>
+        <id>run-doclet-interface</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>com.doclet-interface.helper</groupId>
+                    <artifactId>doclet-interface-plugin</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>genDoc</goal>
+                            </goals>
+                            <configuration>
+                                <sourceInterface>src/main/java/xxxxxx/TestDoc.java</sourceInterface>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>xyzt.xyzt</groupId>
+                            <artifactId>tzyt</artifactId>
+                            <version>1.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
+```
+
+# How can I report an issue or suggest?
+
+//TODO: Need write the process
+
+# Specific java docs (doclet-interface-helper) project
+
+//TODO: Need write the process and put the link for the project
+

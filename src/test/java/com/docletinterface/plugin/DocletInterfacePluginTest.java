@@ -3,8 +3,6 @@ package com.docletinterface.plugin;
 import com.docletinterface.ui.DocletInterfaceHelperApplication;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.internal.verification.Times;
 
@@ -15,7 +13,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@Ignore
 public class DocletInterfacePluginTest extends AbstractMojoTestCase {
 
     @Mock
@@ -36,6 +33,7 @@ public class DocletInterfacePluginTest extends AbstractMojoTestCase {
 
         assertNotNull(docletInterfacePlugin);
 
+        docletInterfacePlugin.setTimeout(1);
         docletInterfacePlugin.setDocletInterfaceHelperApplication(docletInterfaceHelperApplication);
         docletInterfacePlugin.execute();
 
@@ -53,6 +51,7 @@ public class DocletInterfacePluginTest extends AbstractMojoTestCase {
 
         assertNotNull(docletInterfacePlugin);
 
+        docletInterfacePlugin.setTimeout(1);
         docletInterfacePlugin.setDocletInterfaceHelperApplication(docletInterfaceHelperApplication);
         docletInterfacePlugin.execute();
 

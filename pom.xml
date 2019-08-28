@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
+        <java.version>1.8</java.version>
 
         <!-- Dependencies -->
         <maven.version>3.0.5</maven.version>
@@ -27,6 +27,7 @@
 
         <!-- Plugins -->
         <maven-plugin.version>3.6.0</maven-plugin.version>
+        <maven-compile.version>3.8.1</maven-compile.version>
         <jacoco.version>0.8.4</jacoco.version>
 
     </properties>
@@ -107,10 +108,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compile.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 
