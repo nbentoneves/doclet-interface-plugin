@@ -1,63 +1,76 @@
 # Introduction
 ------
-The goal of this plugin is to generate a html page where you can see the documentation method (name of method, input parameters, output parameters, etc) allowing you call the methods and injecting an json input and receive a json output.
+The goal of this plugin is to generate a html page where you can see the documentation method (name of method, input parameters, output parameters, etc) allowing you to call the methods and injecting an json input and receive a json output.
 
-In the first phase we only have available the documentation part, you can't perform requests to the methods. We will have the following features in the following order:
+In the first phase you only can configure for one method and using primitive data type. We will have the following features in the following order:
 
-1. HTML page with method documentation. (Only available for one method) :heavy_check_mark:
-2. You can perform a request to method (Only available for one method) :soon:
+1. HTML page with method documentation. :heavy_check_mark:
+2. You can perform a request to one method. :soon:
+3. You can perform a request to method with non primitive data types. :soon:
 3. You can have a html page with multiple methods documentation and can perform a request for each one. :soon:
 
-# How can I do magic?
+# How can you do magic?
 ------
-You only need to comment you code with specific java docs (for more information please see the chapter X) and copy the following profile for your pom.xml file.
+You only need to add a txt file with the format bellow and copy the following profile for your pom.xml file.
 
-| Field           | Description                                                        | Possible Values       |
-| -------------   |--------------------------------------------------------------------|:---------------------:|
-| phase           | You can set with one of the following maven phases.                | test, verify, install |
-| goal            | This is a goal for the plugin. Please don't change this value!     | genDoc                |
-| sourceInterface | You need to set the java file where did you put the documentation  | any java file         |
+Config file template:
 
-```xml
-<profiles>
-    <profile>
-        <id>run-doclet-interface</id>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>com.doclet-interface.helper</groupId>
-                    <artifactId>doclet-interface-plugin</artifactId>
-                    <version>1.0-SNAPSHOT</version>
-                    <executions>
-                        <execution>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>genDoc</goal>
-                            </goals>
-                            <configuration>
-                                <sourceInterface>src/main/java/xxxxxx/TestDoc.java</sourceInterface>
-                            </configuration>
-                        </execution>
-                    </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>xyzt.xyzt</groupId>
-                            <artifactId>tzyt</artifactId>
-                            <version>1.0</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-</profiles>
+```txt
+<Title> - <A simple description>
+
+@doclib
+beanIdentification:  <The id of bean, you only need this if you set a configFilePathAppContext. E.g: com.sesame.helper.checkValue>
+className: <The name of class. E.g: CheckValue>
+packageName: <The package of class declared up side. E.g: com.sesame.helper>
+methodName: <The method name. E.g: isValid>
+methodDescription: <A simple description of method. E.g: Check if string is valid>
+return: <The return type of method, following with a description using `-`. E.g: Boolean - the result of check>
+param-1: <The type of first parameter, following with a description using `-`. E.g: String - The value>
+param-2: <The type of second parameter, following with a description using `-`. E.g: String - The value>
+...
+@enddoclib
+```
+
+| Field                    | Description                                                             | Possible Values       | Mandatory          |
+| -------------------------|-------------------------------------------------------------------------|-----------------------|--------------------|
+| phase                    | You can set with one of the following maven phases.                     | test, verify, install | *                  |
+| goal                     | This is a goal for the plugin. Please don't change this value!          | testing               | *                  |
+| configFilePath           | You need to set with the path where you put the documentation file.     |                       | *                  |
+| configType               | You need to set with the type of file you create the documentation.     | TEXT, YAML            | default TEXT       |
+| configFilePathAppContext | You can set this if you want to load dependency beans.                  |                       |                    |
+
+```
+        <profile>
+            <id>execSesame</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.sesame.helper</groupId>
+                        <artifactId>sesame-java-plugin</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <configuration>
+						    <configFilePath>src/test/resources/config.txt</configFilePath>
+                            <configType>TEXT</configType>
+                            <configFilePathAppContext>src/test/resources/beans.xml</configFilePathAppContext>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>testing</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 ```
 
 # How can I report an issue or suggest?
 
 //TODO: Need write the process
 
-# Specific java docs (doclet-interface-helper) project
-
-//TODO: Need write the process and put the link for the project
 

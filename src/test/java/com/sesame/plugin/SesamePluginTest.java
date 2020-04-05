@@ -54,6 +54,9 @@ public class SesamePluginTest extends AbstractMojoTestCase {
         sesamePlugin.setSesameJavaApplication(sesameJavaApplication);
         sesamePlugin.execute();
 
+        assertEquals("src/test/resources/config.txt", System.getProperty("config.file.path"));
+        assertEquals("TEXT", System.getProperty("config.type"));
+        assertEquals("src/test/resources/beans.xml", System.getProperty("config.file.path.application.context"));
         verify(sesameJavaApplication, new Times(1)).runService(any());
 
 

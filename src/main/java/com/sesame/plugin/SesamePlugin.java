@@ -8,9 +8,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Mojo(name = "testing")
 public class SesamePlugin extends AbstractMojo {
 
@@ -78,6 +75,7 @@ public class SesamePlugin extends AbstractMojo {
         this.sesameJavaApplication = sesameJavaApplication;
     }
 
+    @VisibleForTesting
     void setTimeout(long timeout) {
         this.timeout = timeout;
     }

@@ -15,7 +15,9 @@
                 <artifactId>sesame-java-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <configuration>
-                    <configFilePath>test</configFilePath>
+                    <configFilePath>src/test/resources/config.txt</configFilePath>
+                    <configType>TEXT</configType>
+                    <configFilePathAppContext>src/test/resources/beans.xml</configFilePathAppContext>
                 </configuration>
                 <executions>
                     <execution>
