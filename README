@@ -15,7 +15,7 @@ You only need to add a txt file with the format bellow and copy the following pr
 
 Config file template:
 
-```
+```xml
 <Title> - <A simple description>
 
 @doclib
@@ -39,7 +39,7 @@ param-2: <The type of second parameter, following with a description using `-`. 
 | configType               | You need to set with the type of file you create the documentation.     | TEXT, YAML            | default TEXT       |
 | configFilePathAppContext | You can set this if you want to load dependency beans.                  |                       |                    |
 
-```
+```xml
         <profile>
             <id>execSesame</id>
 
