@@ -15,7 +15,7 @@ You only need to add a txt file with the format bellow and copy the following pr
 
 Config file template:
 
-```txt
+```
 <Title> - <A simple description>
 
 @doclib
