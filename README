@@ -5,7 +5,7 @@ The goal of this plugin is to generate a html page where you can see the documen
 In the first phase you only can configure for one method and using primitive data type. We will have the following features in the following order:
 
 1. HTML page with method documentation. :heavy_check_mark:
-2. You can perform a request to one method. :soon:
+2. You can perform a request to one method. :heavy_check_mark:
 3. You can perform a request to method with non primitive data types. :soon:
 3. You can have a html page with multiple methods documentation and can perform a request for each one. :soon:
 
