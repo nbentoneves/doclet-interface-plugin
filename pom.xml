@@ -4,11 +4,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sesame.helper</groupId>
+    <groupId>com.github</groupId>
     <artifactId>sesame-java-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>maven-plugin</packaging>
+
+    <name>sesame-java-plugin</name>
+    <url>https://github.com/nbentoneves/sesame-java-plugin</url>
+    <inceptionYear>2020</inceptionYear>
+
+    <developers>
+        <developer>
+            <name>Nuno Bento</name>
+            <email>nbento.neves@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>git@github.com:nbentoneves/sesame-java-plugin.git</url>
+        <connection>scm:git:git@github.com:nbentoneves/sesame-java-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:nbentoneves/sesame-java-plugin.git</developerConnection>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -113,27 +130,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
