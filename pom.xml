@@ -39,7 +39,7 @@
 
         <!-- Testing Dependencies -->
         <maven-plugin-testing.version>2.1</maven-plugin-testing.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <mockito.version>2.27.0</mockito.version>
 
         <!-- Plugins -->
